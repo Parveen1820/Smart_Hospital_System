@@ -65,58 +65,58 @@ INSERT INTO users (name, email, password, role) VALUES
 
 -- =====================================================
 -- SEED DATA: 50 INDIAN DOCTORS
--- Specialties: Cardiac, Trauma, Eye, Diabetes, Neuro,
--- Ortho, Pediatric, General, Skin, ENT,
--- Pulmonary, Gastro, Oncology, Urology, Emergency
+-- Specialties: cardiac, trauma, eye, diabetes, neuro,
+-- ortho, pediatric, general, skin, ENT,
+-- Puimonar, Gastro, Oncology, Urology, Emergency
 -- =====================================================
 INSERT INTO doctors (name, specialization, status, phone, email) VALUES
-('Dr. Rajesh Kumar',       'Cardiac',    'Available', '+91-98201-11001', 'doctor1@gmail.com'),
-('Dr. Priya Mehta',        'Cardiac',    'Busy',      '+91-98201-11002', 'doctor2@gmail.com'),
-('Dr. Anil Sharma',        'Cardiac',    'Available', '+91-98201-11003', 'doctor3@gmail.com'),
-('Dr. Kavita Reddy',       'Cardiac',    'Available', '+91-98201-11004', 'doctor4@gmail.com'),
+('Dr. Rajesh Kumar',       'cardiac',    'Available', '+91-98201-11001', 'doctor1@gmail.com'),
+('Dr. Priya Mehta',        'cardiac',    'Busy',      '+91-98201-11002', 'doctor2@gmail.com'),
+('Dr. Anil Sharma',        'cardiac',    'Available', '+91-98201-11003', 'doctor3@gmail.com'),
+('Dr. Kavita Reddy',       'cardiac',    'Available', '+91-98201-11004', 'doctor4@gmail.com'),
 
-('Dr. Suresh Patel',       'Trauma',     'Available', '+91-98201-11005', 'doctor5@gmail.com'),
-('Dr. Neha Joshi',         'Trauma',     'Busy',      '+91-98201-11006', 'doctor6@gmail.com'),
-('Dr. Mohan Iyer',         'Trauma',     'Available', '+91-98201-11007', 'doctor7@gmail.com'),
+('Dr. Suresh Patel',       'trauma',     'Available', '+91-98201-11005', 'doctor5@gmail.com'),
+('Dr. Neha Joshi',         'trauma',     'Busy',      '+91-98201-11006', 'doctor6@gmail.com'),
+('Dr. Mohan Iyer',         'trauma',     'Available', '+91-98201-11007', 'doctor7@gmail.com'),
 
-('Dr. Meera Nair',         'Eye',        'Available', '+91-98201-11008', 'doctor8@gmail.com'),
-('Dr. Arjun Pillai',       'Eye',        'Available', '+91-98201-11009', 'doctor9@gmail.com'),
-('Dr. Sunita Bose',        'Eye',        'Busy',      '+91-98201-11010', 'doctor10@gmail.com'),
+('Dr. Meera Nair',         'eye',        'Available', '+91-98201-11008', 'doctor8@gmail.com'),
+('Dr. Arjun Pillai',       'eye',        'Available', '+91-98201-11009', 'doctor9@gmail.com'),
+('Dr. Sunita Bose',        'eye',        'Busy',      '+91-98201-11010', 'doctor10@gmail.com'),
 
-('Dr. Deepak Trivedi',     'Diabetes',   'Available', '+91-98201-11011', 'doctor11@gmail.com'),
-('Dr. Rekha Menon',        'Diabetes',   'Available', '+91-98201-11012', 'doctor12@gmail.com'),
-('Dr. Vikram Desai',       'Diabetes',   'Busy',      '+91-98201-11013', 'doctor13@gmail.com'),
+('Dr. Deepak Trivedi',     'diabetes',   'Available', '+91-98201-11011', 'doctor11@gmail.com'),
+('Dr. Rekha Menon',        'diabetes',   'Available', '+91-98201-11012', 'doctor12@gmail.com'),
+('Dr. Vikram Desai',       'diabetes',   'Busy',      '+91-98201-11013', 'doctor13@gmail.com'),
 
-('Dr. Lakshmi Rao',        'Neuro',      'Available', '+91-98201-11014', 'doctor14@gmail.com'),
-('Dr. Ramesh Yadav',       'Neuro',      'Busy',      '+91-98201-11015', 'doctor15@gmail.com'),
-('Dr. Anita Gupta',        'Neuro',      'Available', '+91-98201-11016', 'doctor16@gmail.com'),
-('Dr. Tarun Saxena',       'Neuro',      'Available', '+91-98201-11017', 'doctor17@gmail.com'),
+('Dr. Lakshmi Rao',        'neuro',      'Available', '+91-98201-11014', 'doctor14@gmail.com'),
+('Dr. Ramesh Yadav',       'neuro',      'Busy',      '+91-98201-11015', 'doctor15@gmail.com'),
+('Dr. Anita Gupta',        'neuro',      'Available', '+91-98201-11016', 'doctor16@gmail.com'),
+('Dr. Tarun Saxena',       'neuro',      'Available', '+91-98201-11017', 'doctor17@gmail.com'),
 
-('Dr. Sanjay Kapoor',      'Ortho',      'Available', '+91-98201-11018', 'doctor18@gmail.com'),
-('Dr. Pooja Verma',        'Ortho',      'Busy',      '+91-98201-11019', 'doctor19@gmail.com'),
-('Dr. Ravi Shankar',       'Ortho',      'Available', '+91-98201-11020', 'doctor20@gmail.com'),
-('Dr. Usha Bhatt',         'Ortho',      'Available', '+91-98201-11021', 'doctor21@gmail.com'),
+('Dr. Sanjay Kapoor',      'ortho',      'Available', '+91-98201-11018', 'doctor18@gmail.com'),
+('Dr. Pooja Verma',        'ortho',      'Busy',      '+91-98201-11019', 'doctor19@gmail.com'),
+('Dr. Ravi Shankar',       'ortho',      'Available', '+91-98201-11020', 'doctor20@gmail.com'),
+('Dr. Usha Bhatt',         'ortho',      'Available', '+91-98201-11021', 'doctor21@gmail.com'),
 
-('Dr. Hema Kulkarni',      'Pediatric',  'Available', '+91-98201-11022', 'doctor22@gmail.com'),
-('Dr. Aditya Shetty',      'Pediatric',  'Busy',      '+91-98201-11023', 'doctor23@gmail.com'),
-('Dr. Chitra Mukherjee',   'Pediatric',  'Available', '+91-98201-11024', 'doctor24@gmail.com'),
+('Dr. Hema Kulkarni',      'pediatric',  'Available', '+91-98201-11022', 'doctor22@gmail.com'),
+('Dr. Aditya Shetty',      'pediatric',  'Busy',      '+91-98201-11023', 'doctor23@gmail.com'),
+('Dr. Chitra Mukherjee',   'pediatric',  'Available', '+91-98201-11024', 'doctor24@gmail.com'),
 
-('Dr. Girish Nambiar',     'General',    'Available', '+91-98201-11025', 'doctor25@gmail.com'),
-('Dr. Kamala Dubey',       'General',    'Available', '+91-98201-11026', 'doctor26@gmail.com'),
-('Dr. Naresh Tiwari',      'General',    'Busy',      '+91-98201-11027', 'doctor27@gmail.com'),
-('Dr. Savita Ghosh',       'General',    'Available', '+91-98201-11028', 'doctor28@gmail.com'),
+('Dr. Girish Nambiar',     'general',    'Available', '+91-98201-11025', 'doctor25@gmail.com'),
+('Dr. Kamala Dubey',       'general',    'Available', '+91-98201-11026', 'doctor26@gmail.com'),
+('Dr. Naresh Tiwari',      'general',    'Busy',      '+91-98201-11027', 'doctor27@gmail.com'),
+('Dr. Savita Ghosh',       'general',    'Available', '+91-98201-11028', 'doctor28@gmail.com'),
 
-('Dr. Pankaj Mishra',      'Skin',       'Available', '+91-98201-11029', 'doctor29@gmail.com'),
-('Dr. Vandana Sinha',      'Skin',       'Available', '+91-98201-11030', 'doctor30@gmail.com'),
-('Dr. Falguni Shah',       'Skin',       'Busy',      '+91-98201-11031', 'doctor31@gmail.com'),
+('Dr. Pankaj Mishra',      'skin',       'Available', '+91-98201-11029', 'doctor29@gmail.com'),
+('Dr. Vandana Sinha',      'skin',       'Available', '+91-98201-11030', 'doctor30@gmail.com'),
+('Dr. Falguni Shah',       'skin',       'Busy',      '+91-98201-11031', 'doctor31@gmail.com'),
 
 ('Dr. Mahesh Pandey',      'ENT',        'Available', '+91-98201-11032', 'doctor32@gmail.com'),
 ('Dr. Nalini Hegde',       'ENT',        'Busy',      '+91-98201-11033', 'doctor33@gmail.com'),
 ('Dr. Qasim Ali',          'ENT',        'Available', '+91-98201-11034', 'doctor34@gmail.com'),
 
-('Dr. Kiran Jain',         'Pulmonary',  'Available', '+91-98201-11035', 'doctor35@gmail.com'),
-('Dr. Rashmi Wagh',        'Pulmonary',  'Available', '+91-98201-11036', 'doctor36@gmail.com'),
-('Dr. Sachin Parekh',      'Pulmonary',  'Busy',      '+91-98201-11037', 'doctor37@gmail.com'),
+('Dr. Kiran Jain',         'Puimonar',   'Available', '+91-98201-11035', 'doctor35@gmail.com'),
+('Dr. Rashmi Wagh',        'Puimonar',   'Available', '+91-98201-11036', 'doctor36@gmail.com'),
+('Dr. Sachin Parekh',      'Puimonar',   'Busy',      '+91-98201-11037', 'doctor37@gmail.com'),
 
 ('Dr. Indira Krishnan',    'Gastro',     'Available', '+91-98201-11038', 'doctor38@gmail.com'),
 ('Dr. Jyoti Rajan',        'Gastro',     'Busy',      '+91-98201-11039', 'doctor39@gmail.com'),
@@ -136,7 +136,7 @@ INSERT INTO doctors (name, specialization, status, phone, email) VALUES
 ('Dr. Anita Bhat',         'Emergency',  'Available', '+91-98201-11050', 'doctor50@gmail.com');
 
 -- =====================================================
--- SEED DATA: 50 ROOMS (Including 4 Emergency Rooms)
+-- SEED DATA: 50 ROOMS (Exactly 4 Emergency Rooms)
 -- =====================================================
 INSERT INTO rooms (room_number, type, status) VALUES
 ('E01', 'Emergency', 'Available'),
