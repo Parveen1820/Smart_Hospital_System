@@ -4,52 +4,52 @@
 -- USERS TABLE (For Login)
 -- =====================================================
 CREATE TABLE IF NOT EXISTS users (
-  user_id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(100) DEFAULT 'Unknown',
-  email VARCHAR(100) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  role VARCHAR(50) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT DEFAULT 'Unknown',
+  email TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  role TEXT NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- =====================================================
 -- DOCTORS TABLE
 -- =====================================================
 CREATE TABLE IF NOT EXISTS doctors (
-  doctor_id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
-  specialization VARCHAR(100) NOT NULL,
-  status VARCHAR(50) DEFAULT 'Available',
-  phone VARCHAR(20),
-  email VARCHAR(100),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  doctor_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  specialization TEXT NOT NULL,
+  status TEXT DEFAULT 'Available',
+  phone TEXT,
+  email TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- =====================================================
 -- ROOMS TABLE
 -- =====================================================
 CREATE TABLE IF NOT EXISTS rooms (
-  room_id INT PRIMARY KEY AUTO_INCREMENT,
-  room_number VARCHAR(50) UNIQUE NOT NULL,
-  type VARCHAR(50) NOT NULL,
-  status VARCHAR(50) DEFAULT 'Available',
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  room_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  room_number TEXT UNIQUE NOT NULL,
+  type TEXT NOT NULL,
+  status TEXT DEFAULT 'Available',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 -- =====================================================
 -- PATIENTS TABLE
 -- =====================================================
 CREATE TABLE IF NOT EXISTS patients (
-  patient_id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
-  age INT,
-  category VARCHAR(100),
-  priority_level INT DEFAULT 3,
-  priority_label VARCHAR(50) DEFAULT 'Medium',
-  doctor_id INT,
-  room_id INT,
-  status VARCHAR(50) DEFAULT 'Admitted',
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  patient_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  age INTEGER,
+  category TEXT,
+  priority_level INTEGER DEFAULT 3,
+  priority_label TEXT DEFAULT 'Medium',
+  doctor_id INTEGER,
+  room_id INTEGER,
+  status TEXT DEFAULT 'Admitted',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id),
   FOREIGN KEY (room_id) REFERENCES rooms(room_id)
 );
@@ -65,63 +65,84 @@ INSERT INTO users (name, email, password, role) VALUES
 
 -- =====================================================
 -- SEED DATA: 50 INDIAN DOCTORS
+-- Specialties: Cardiac, Trauma, Eye, Diabetes, Neuro,
+-- Ortho, Pediatric, General, Skin, ENT,
+-- Pulmonary, Gastro, Oncology, Urology, Emergency
 -- =====================================================
 INSERT INTO doctors (name, specialization, status, phone, email) VALUES
-('Dr. Rajesh Kumar',      'Cardiology',      'Available', '+91-98201-11001', 'rajesh.kumar@smarthospital.in'),
-('Dr. Priya Sharma',      'Cardiology',      'Available', '+91-98201-11002', 'priya.sharma@smarthospital.in'),
-('Dr. Anil Mehta',        'Cardiology',      'Busy',      '+91-98201-11003', 'anil.mehta@smarthospital.in'),
-('Dr. Sunita Reddy',      'Cardiology',      'Available', '+91-98201-11004', 'sunita.reddy@smarthospital.in'),
-('Dr. Vikas Gupta',       'Cardiology',      'Available', '+91-98201-11005', 'vikas.gupta@smarthospital.in'),
-('Dr. Meera Nair',        'Neurology',       'Available', '+91-98201-11006', 'meera.nair@smarthospital.in'),
-('Dr. Arjun Patel',       'Neurology',       'Busy',      '+91-98201-11007', 'arjun.patel@smarthospital.in'),
-('Dr. Kavita Iyer',       'Neurology',       'Available', '+91-98201-11008', 'kavita.iyer@smarthospital.in'),
-('Dr. Suresh Rao',        'Neurology',       'Available', '+91-98201-11009', 'suresh.rao@smarthospital.in'),
-('Dr. Neha Joshi',        'Neurology',       'Available', '+91-98201-11010', 'neha.joshi@smarthospital.in'),
-('Dr. Vikram Singh',      'Orthopedic',      'Available', '+91-98201-11011', 'vikram.singh@smarthospital.in'),
-('Dr. Anjali Desai',      'Orthopedic',      'Busy',      '+91-98201-11012', 'anjali.desai@smarthospital.in'),
-('Dr. Ravi Shankar',      'Orthopedic',      'Available', '+91-98201-11013', 'ravi.shankar@smarthospital.in'),
-('Dr. Pooja Verma',       'Orthopedic',      'Available', '+91-98201-11014', 'pooja.verma@smarthospital.in'),
-('Dr. Sanjay Kapoor',     'Orthopedic',      'Available', '+91-98201-11015', 'sanjay.kapoor@smarthospital.in'),
-('Dr. Lakshmi Menon',     'General',         'Available', '+91-98201-11016', 'lakshmi.menon@smarthospital.in'),
-('Dr. Deepak Trivedi',    'General',         'Busy',      '+91-98201-11017', 'deepak.trivedi@smarthospital.in'),
-('Dr. Rekha Pillai',      'General',         'Available', '+91-98201-11018', 'rekha.pillai@smarthospital.in'),
-('Dr. Sunil Agarwal',     'General',         'Available', '+91-98201-11019', 'sunil.agarwal@smarthospital.in'),
-('Dr. Geeta Bose',        'General',         'Available', '+91-98201-11020', 'geeta.bose@smarthospital.in'),
-('Dr. Kiran Rao',         'Emergency',       'Available', '+91-98201-11021', 'kiran.rao@smarthospital.in'),
-('Dr. Ramesh Yadav',      'Emergency',       'Busy',      '+91-98201-11022', 'ramesh.yadav@smarthospital.in'),
-('Dr. Anita Chandra',     'Emergency',       'Available', '+91-98201-11023', 'anita.chandra@smarthospital.in'),
-('Dr. Mohan Lal',         'Emergency',       'Available', '+91-98201-11024', 'mohan.lal@smarthospital.in'),
-('Dr. Shanti Krishnan',   'Emergency',       'Available', '+91-98201-11025', 'shanti.krishnan@smarthospital.in'),
-('Dr. Tarun Bhatt',       'Dermatology',     'Available', '+91-98201-11026', 'tarun.bhatt@smarthospital.in'),
-('Dr. Usha Saxena',       'Dermatology',     'Available', '+91-98201-11027', 'usha.saxena@smarthospital.in'),
-('Dr. Pankaj Mishra',     'Dermatology',     'Busy',      '+91-98201-11028', 'pankaj.mishra@smarthospital.in'),
-('Dr. Savita Ghosh',      'Dermatology',     'Available', '+91-98201-11029', 'savita.ghosh@smarthospital.in'),
-('Dr. Naresh Tiwari',     'Dermatology',     'Available', '+91-98201-11030', 'naresh.tiwari@smarthospital.in'),
-('Dr. Hema Kulkarni',     'Pediatrics',      'Available', '+91-98201-11031', 'hema.kulkarni@smarthospital.in'),
-('Dr. Aditya Shetty',     'Pediatrics',      'Busy',      '+91-98201-11032', 'aditya.shetty@smarthospital.in'),
-('Dr. Chitra Mukherjee',  'Pediatrics',      'Available', '+91-98201-11033', 'chitra.mukherjee@smarthospital.in'),
-('Dr. Dinesh Parekh',     'Pediatrics',      'Available', '+91-98201-11034', 'dinesh.parekh@smarthospital.in'),
-('Dr. Falguni Shah',      'Pediatrics',      'Available', '+91-98201-11035', 'falguni.shah@smarthospital.in'),
-('Dr. Girish Nambiar',    'Gynecology',      'Available', '+91-98201-11036', 'girish.nambiar@smarthospital.in'),
-('Dr. Indira Rajan',      'Gynecology',      'Available', '+91-98201-11037', 'indira.rajan@smarthospital.in'),
-('Dr. Jyoti Wagh',        'Gynecology',      'Busy',      '+91-98201-11038', 'jyoti.wagh@smarthospital.in'),
-('Dr. Kamala Dubey',      'Gynecology',      'Available', '+91-98201-11039', 'kamala.dubey@smarthospital.in'),
-('Dr. Lata Patil',        'Gynecology',      'Available', '+91-98201-11040', 'lata.patil@smarthospital.in'),
-('Dr. Mahesh Pandey',     'Ophthalmology',   'Available', '+91-98201-11041', 'mahesh.pandey@smarthospital.in'),
-('Dr. Nalini Hegde',      'Ophthalmology',   'Available', '+91-98201-11042', 'nalini.hegde@smarthospital.in'),
-('Dr. Om Prakash',        'Ophthalmology',   'Busy',      '+91-98201-11043', 'om.prakash@smarthospital.in'),
-('Dr. Padma Reddiar',     'Ophthalmology',   'Available', '+91-98201-11044', 'padma.reddiar@smarthospital.in'),
-('Dr. Qasim Ali',         'Ophthalmology',   'Available', '+91-98201-11045', 'qasim.ali@smarthospital.in'),
-('Dr. Rashmi Jain',       'Psychiatry',      'Available', '+91-98201-11046', 'rashmi.jain@smarthospital.in'),
-('Dr. Sachin Thakur',     'Psychiatry',      'Available', '+91-98201-11047', 'sachin.thakur@smarthospital.in'),
-('Dr. Tanuja Bhosle',     'Psychiatry',      'Busy',      '+91-98201-11048', 'tanuja.bhosle@smarthospital.in'),
-('Dr. Umesh Karnik',      'Psychiatry',      'Available', '+91-98201-11049', 'umesh.karnik@smarthospital.in'),
-('Dr. Vandana Sinha',     'Psychiatry',      'Available', '+91-98201-11050', 'vandana.sinha@smarthospital.in');
+('Dr. Rajesh Kumar',       'Cardiac',    'Available', '+91-98201-11001', 'doctor1@gmail.com'),
+('Dr. Priya Mehta',        'Cardiac',    'Busy',      '+91-98201-11002', 'doctor2@gmail.com'),
+('Dr. Anil Sharma',        'Cardiac',    'Available', '+91-98201-11003', 'doctor3@gmail.com'),
+('Dr. Kavita Reddy',       'Cardiac',    'Available', '+91-98201-11004', 'doctor4@gmail.com'),
+
+('Dr. Suresh Patel',       'Trauma',     'Available', '+91-98201-11005', 'doctor5@gmail.com'),
+('Dr. Neha Joshi',         'Trauma',     'Busy',      '+91-98201-11006', 'doctor6@gmail.com'),
+('Dr. Mohan Iyer',         'Trauma',     'Available', '+91-98201-11007', 'doctor7@gmail.com'),
+
+('Dr. Meera Nair',         'Eye',        'Available', '+91-98201-11008', 'doctor8@gmail.com'),
+('Dr. Arjun Pillai',       'Eye',        'Available', '+91-98201-11009', 'doctor9@gmail.com'),
+('Dr. Sunita Bose',        'Eye',        'Busy',      '+91-98201-11010', 'doctor10@gmail.com'),
+
+('Dr. Deepak Trivedi',     'Diabetes',   'Available', '+91-98201-11011', 'doctor11@gmail.com'),
+('Dr. Rekha Menon',        'Diabetes',   'Available', '+91-98201-11012', 'doctor12@gmail.com'),
+('Dr. Vikram Desai',       'Diabetes',   'Busy',      '+91-98201-11013', 'doctor13@gmail.com'),
+
+('Dr. Lakshmi Rao',        'Neuro',      'Available', '+91-98201-11014', 'doctor14@gmail.com'),
+('Dr. Ramesh Yadav',       'Neuro',      'Busy',      '+91-98201-11015', 'doctor15@gmail.com'),
+('Dr. Anita Gupta',        'Neuro',      'Available', '+91-98201-11016', 'doctor16@gmail.com'),
+('Dr. Tarun Saxena',       'Neuro',      'Available', '+91-98201-11017', 'doctor17@gmail.com'),
+
+('Dr. Sanjay Kapoor',      'Ortho',      'Available', '+91-98201-11018', 'doctor18@gmail.com'),
+('Dr. Pooja Verma',        'Ortho',      'Busy',      '+91-98201-11019', 'doctor19@gmail.com'),
+('Dr. Ravi Shankar',       'Ortho',      'Available', '+91-98201-11020', 'doctor20@gmail.com'),
+('Dr. Usha Bhatt',         'Ortho',      'Available', '+91-98201-11021', 'doctor21@gmail.com'),
+
+('Dr. Hema Kulkarni',      'Pediatric',  'Available', '+91-98201-11022', 'doctor22@gmail.com'),
+('Dr. Aditya Shetty',      'Pediatric',  'Busy',      '+91-98201-11023', 'doctor23@gmail.com'),
+('Dr. Chitra Mukherjee',   'Pediatric',  'Available', '+91-98201-11024', 'doctor24@gmail.com'),
+
+('Dr. Girish Nambiar',     'General',    'Available', '+91-98201-11025', 'doctor25@gmail.com'),
+('Dr. Kamala Dubey',       'General',    'Available', '+91-98201-11026', 'doctor26@gmail.com'),
+('Dr. Naresh Tiwari',      'General',    'Busy',      '+91-98201-11027', 'doctor27@gmail.com'),
+('Dr. Savita Ghosh',       'General',    'Available', '+91-98201-11028', 'doctor28@gmail.com'),
+
+('Dr. Pankaj Mishra',      'Skin',       'Available', '+91-98201-11029', 'doctor29@gmail.com'),
+('Dr. Vandana Sinha',      'Skin',       'Available', '+91-98201-11030', 'doctor30@gmail.com'),
+('Dr. Falguni Shah',       'Skin',       'Busy',      '+91-98201-11031', 'doctor31@gmail.com'),
+
+('Dr. Mahesh Pandey',      'ENT',        'Available', '+91-98201-11032', 'doctor32@gmail.com'),
+('Dr. Nalini Hegde',       'ENT',        'Busy',      '+91-98201-11033', 'doctor33@gmail.com'),
+('Dr. Qasim Ali',          'ENT',        'Available', '+91-98201-11034', 'doctor34@gmail.com'),
+
+('Dr. Kiran Jain',         'Pulmonary',  'Available', '+91-98201-11035', 'doctor35@gmail.com'),
+('Dr. Rashmi Wagh',        'Pulmonary',  'Available', '+91-98201-11036', 'doctor36@gmail.com'),
+('Dr. Sachin Parekh',      'Pulmonary',  'Busy',      '+91-98201-11037', 'doctor37@gmail.com'),
+
+('Dr. Indira Krishnan',    'Gastro',     'Available', '+91-98201-11038', 'doctor38@gmail.com'),
+('Dr. Jyoti Rajan',        'Gastro',     'Busy',      '+91-98201-11039', 'doctor39@gmail.com'),
+('Dr. Lata Patil',         'Gastro',     'Available', '+91-98201-11040', 'doctor40@gmail.com'),
+
+('Dr. Om Prakash',         'Oncology',   'Available', '+91-98201-11041', 'doctor41@gmail.com'),
+('Dr. Padma Reddiar',      'Oncology',   'Busy',      '+91-98201-11042', 'doctor42@gmail.com'),
+('Dr. Tanuja Bhosle',      'Oncology',   'Available', '+91-98201-11043', 'doctor43@gmail.com'),
+
+('Dr. Umesh Karnik',       'Urology',    'Available', '+91-98201-11044', 'doctor44@gmail.com'),
+('Dr. Geeta Agarwal',      'Urology',    'Available', '+91-98201-11045', 'doctor45@gmail.com'),
+('Dr. Dinesh Parekh',      'Urology',    'Busy',      '+91-98201-11046', 'doctor46@gmail.com'),
+
+('Dr. Shanti Chandra',     'Emergency',  'Available', '+91-98201-11047', 'doctor47@gmail.com'),
+('Dr. Mohan Lal',          'Emergency',  'Busy',      '+91-98201-11048', 'doctor48@gmail.com'),
+('Dr. Kiran Rao',          'Emergency',  'Available', '+91-98201-11049', 'doctor49@gmail.com'),
+('Dr. Anita Bhat',         'Emergency',  'Available', '+91-98201-11050', 'doctor50@gmail.com');
 
 -- =====================================================
--- SEED DATA: 50 ROOMS
+-- SEED DATA: 50 ROOMS (Including 4 Emergency Rooms)
 -- =====================================================
 INSERT INTO rooms (room_number, type, status) VALUES
+('E01', 'Emergency', 'Available'),
+('E02', 'Emergency', 'Available'),
+('E03', 'Emergency', 'Available'),
+('E04', 'Emergency', 'Available'),
 ('101', 'General',   'Available'),
 ('102', 'General',   'Available'),
 ('103', 'General',   'Available'),
@@ -142,6 +163,12 @@ INSERT INTO rooms (room_number, type, status) VALUES
 ('118', 'General',   'Available'),
 ('119', 'General',   'Available'),
 ('120', 'General',   'Available'),
+('121', 'General',   'Available'),
+('122', 'General',   'Available'),
+('123', 'General',   'Available'),
+('124', 'General',   'Available'),
+('125', 'General',   'Available'),
+('126', 'General',   'Available'),
 ('201', 'ICU',       'Available'),
 ('202', 'ICU',       'Available'),
 ('203', 'ICU',       'Available'),
@@ -152,23 +179,13 @@ INSERT INTO rooms (room_number, type, status) VALUES
 ('208', 'ICU',       'Available'),
 ('209', 'ICU',       'Available'),
 ('210', 'ICU',       'Available'),
-('301', 'Emergency', 'Available'),
-('302', 'Emergency', 'Available'),
-('303', 'Emergency', 'Available'),
-('304', 'Emergency', 'Available'),
-('305', 'Emergency', 'Available'),
-('306', 'Emergency', 'Available'),
-('307', 'Emergency', 'Available'),
-('308', 'Emergency', 'Available'),
-('309', 'Emergency', 'Available'),
-('310', 'Emergency', 'Available'),
-('401', 'General',   'Available'),
-('402', 'General',   'Available'),
-('403', 'General',   'Available'),
-('404', 'General',   'Available'),
-('405', 'General',   'Available'),
-('406', 'General',   'Available'),
-('407', 'ICU',       'Available'),
-('408', 'ICU',       'Available'),
-('409', 'Emergency', 'Available'),
-('410', 'Emergency', 'Available');
+('211', 'ICU',       'Available'),
+('212', 'ICU',       'Available'),
+('213', 'ICU',       'Available'),
+('214', 'ICU',       'Available'),
+('215', 'ICU',       'Available'),
+('216', 'ICU',       'Available'),
+('217', 'ICU',       'Available'),
+('218', 'ICU',       'Available'),
+('219', 'ICU',       'Available'),
+('220', 'ICU',       'Available');
